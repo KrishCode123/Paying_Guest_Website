@@ -17,7 +17,7 @@ const Dropdown = () => {
 
   useEffect(() => {
     if (selectedOption) {
-      axios.get(`https://paying-guest-website-backend.onrender.com/api/rooms/${encodeURIComponent(selectedOption)}`)
+      axios.get(`http://localhost:5000/api/rooms/${encodeURIComponent(selectedOption)}`)
         .then((response) => {
           const rooms = response.data;
           if (rooms.length === 0) {
@@ -63,7 +63,7 @@ const Dropdown = () => {
         <div className={styles.roomList}>
           {roomDetails.map(room => (
             <div key={room._id} className={styles.roomItem}>
-              <img src={`https://paying-guest-website-backend.onrender.com/uploads/${room.image}`} alt={room.type} className={styles.roomImage} />
+              <img src={`http://localhost:5000/uploads/${room.image}`} alt={room.type} className={styles.roomImage} />
               <div className={styles.roomInfo}>
                 <h2>{room.type}</h2>
                 <p>Room Number: {room.roomNumber}</p>

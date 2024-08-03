@@ -31,7 +31,7 @@ const GuestForm = ({ roomNumber }) => {
     }
     data.append("roomNumber", roomNumber);
 
-    axios.post("https://paying-guest-website-backend.onrender.com/api/guests", data)
+    axios.post("http://localhost:5000/api/guests", data)
       .then((response) => {
         console.log("Guest added successfully:", response);
         window.alert("Hey Guest, Thankyou For Registering, PLease Contact us at sribalagiPG@gmail.com Within 24 hrs for further validation process.");

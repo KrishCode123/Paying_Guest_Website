@@ -1,4 +1,3 @@
-// Import necessary packages
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -16,13 +15,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Middleware
-// Configure CORS
-app.use(cors({
-  origin: 'https://paying-guest-website-frondend.onrender.com', // Replace with your frontend URL
-  methods: 'GET,POST,PUT,DELETE,OPTIONS',
-  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-}));
-
+app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'), { index: false }));
 

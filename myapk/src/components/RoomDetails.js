@@ -15,7 +15,7 @@ const RoomDetails = () => {
         <Link to="/" className="home-link">Go to Home Page</Link>
       </div>
       <h1 className="room-title">{room.type}</h1>
-      <img className="room-image" src={`https://paying-guest-website-backend.onrender.com/uploads/${room.image}`} alt={room.type} />
+      <img className="room-image" src={`http://localhost:5000/uploads/${room.image}`} alt={room.type} />
 
 
 

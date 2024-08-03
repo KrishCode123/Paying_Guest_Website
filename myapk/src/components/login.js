@@ -16,7 +16,7 @@ const Login = () => {
 
   const handleLogin = () => {
     console.log('Logging in with:', { role, username, password });
-    axios.post('https://paying-guest-website-backend.onrender.com/api/auth/login', { role, username, password })
+    axios.post('http://localhost:5000/api/auth/login', { role, username, password })
       .then(response => {
         setIsRegistered(response.data.isRegistered); // Example: Set registration status
         alert(response.data.message || 'Login successful');

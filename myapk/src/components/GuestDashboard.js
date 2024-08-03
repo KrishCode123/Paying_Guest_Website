@@ -40,7 +40,7 @@ const GuestDashboard = () => {
   };
 
   const handleSubmitComplaint = () => {
-    axios.post('https://paying-guest-website-backend.onrender.com/api/complaints/submit-complaint', {
+    axios.post('http://localhost:5000/api/complaints/submit-complaint', {
       roomNumber: guest.roomNumber,
       complaintType,
       description,
@@ -64,7 +64,7 @@ const GuestDashboard = () => {
     formData.append('screenshot', screenshot);
     formData.append('month', currentMonth);
 
-    axios.post('https://paying-guest-website-backend.onrender.com/api/payments/submit-payment', formData)
+    axios.post('http://localhost:5000/api/payments/submit-payment', formData)
       .then(response => {
         alert('Payment submitted successfully.');
         handlePaymentClose();
@@ -78,7 +78,7 @@ const GuestDashboard = () => {
   return (
     <div className="dashboard-container">
       <div className="dashboard-header">
-        <img src={`https://paying-guest-website-backend.onrender.com/uploads/${guest.image}`} alt={guest.name} style={{ maxWidth: "100px", height: "auto" }} />
+        <img src={`http://localhost:5000/uploads/${guest.image}`} alt={guest.name} style={{ maxWidth: "100px", height: "auto" }} />
         <h1>Guest Dashboard</h1>
         <Button variant="contained" color="primary" onClick={handleLogout} style={{ marginLeft: 'auto' }}>Logout</Button> {/* Logout button */}
       </div>
@@ -142,7 +142,7 @@ const GuestDashboard = () => {
       <Dialog open={isPaymentOpen} onClose={handlePaymentClose}>
         <DialogTitle>Make Payment for {currentMonth}</DialogTitle>
         <DialogContent className="dialog-content">
-          <img src={`https://paying-guest-website-backend.onrender.com/uploads/scanner.jpg`} alt="Scanner" />
+          <img src={`http://localhost:5000/uploads/scanner.jpg`} alt="Scanner" />
           <TextField
             margin="dense"
             label="Transaction ID"
