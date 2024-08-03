@@ -9,12 +9,12 @@ const RegisterForm = ({ open, onClose }) => {
 
   const handleRegister = () => {
     console.log('Checking Aadhaar number:', aadhaarNumber);
-    axios.post('http://localhost:5000/api/auth/check-aadhaar', { aadhaarNumber })
+    axios.post('https://paying-guest-website-backend.onrender.com/api/auth/check-aadhaar', { aadhaarNumber })
       .then(response => {
         console.log('Aadhaar check response:', response.data);
         if (response.data.valid) {
           console.log('Aadhaar is valid, proceeding with registration');
-          axios.post('http://localhost:5000/api/auth/register', {
+          axios.post('https://paying-guest-website-backend.onrender.com/api/auth/register', {
             aadhaarNumber,
             username,
             password

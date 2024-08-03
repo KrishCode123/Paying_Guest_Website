@@ -112,7 +112,7 @@ const AdminDashboard = () => {
       data.append(key, formData[key]);
     });
 
-    axios.post('http://localhost:5000/api/guests', data)
+    axios.post('https://paying-guest-website-backend.onrender.com/api/guests', data)
       .then(response => {
         alert('User added successfully.');
         handleDialogClose();
@@ -129,7 +129,7 @@ const AdminDashboard = () => {
       data.append(key, formData[key]);
     });
 
-    axios.put(`http://localhost:5000/api/guests/update/${formData.adhaarNumber}`, data)
+    axios.put(`https://paying-guest-website-backend.onrender.com/api/guests/update/${formData.adhaarNumber}`, data)
       .then(response => {
         alert('User updated successfully.');
         handleDialogClose();
@@ -141,7 +141,7 @@ const AdminDashboard = () => {
   };
 
   const handleValidateUser = () => {
-    axios.put(`http://localhost:5000/api/guests/validate/${formData.adhaarNumber}`)
+    axios.put(`https://paying-guest-website-backend.onrender.com/api/guests/validate/${formData.adhaarNumber}`)
       .then(response => {
         alert('User validated successfully.');
         handleDialogClose();
@@ -153,7 +153,7 @@ const AdminDashboard = () => {
   };
 
   const handleDeleteUser = () => {
-    axios.delete(`http://localhost:5000/api/guests/${searchTerm}`)
+    axios.delete(`https://paying-guest-website-backend.onrender.com/api/guests/${searchTerm}`)
       .then(response => {
         alert('User deleted successfully.');
         handleDialogClose();
@@ -165,7 +165,7 @@ const AdminDashboard = () => {
   };
 
   const handleSearchUser = () => {
-    axios.get(`http://localhost:5000/api/guests/${searchTerm}`)
+    axios.get(`https://paying-guest-website-backend.onrender.com/api/guests/${searchTerm}`)
       .then(response => {
         setUserDetails(response.data);
         setFormData(response.data);
@@ -177,7 +177,7 @@ const AdminDashboard = () => {
   };
 
   const fetchComplaints = () => {
-    axios.get('http://localhost:5000/api/complaints')
+    axios.get('https://paying-guest-website-backend.onrender.com/api/complaints')
       .then(response => {
         setComplaints(response.data);
       })
@@ -188,7 +188,7 @@ const AdminDashboard = () => {
   };
 
   const handleResolveComplaint = (id) => {
-    axios.put(`http://localhost:5000/api/complaints/resolve/${id}`)
+    axios.put(`https://paying-guest-website-backend.onrender.com/api/complaints/resolve/${id}`)
       .then(response => {
         alert('Complaint resolved successfully.');
         fetchComplaints(); // Refresh complaints list
@@ -215,7 +215,7 @@ const AdminDashboard = () => {
       data.append('additionalImages', img);
     });
 
-    const url = dialogType === 'addRoom' ? 'http://localhost:5000/api/rooms' : `http://localhost:5000/api/rooms/update/${roomFormData.roomNumber}`;
+    const url = dialogType === 'addRoom' ? 'https://paying-guest-website-backend.onrender.com/api/rooms' : `https://paying-guest-website-backend.onrender.com/api/rooms/update/${roomFormData.roomNumber}`;
     const method = dialogType === 'addRoom' ? 'post' : 'put';
 
     axios({ method, url, data })
@@ -230,7 +230,7 @@ const AdminDashboard = () => {
   };
 
   const handleSearchRoom = () => {
-    axios.get(`http://localhost:5000/api/rooms/number/${searchRoomNumber}`)
+    axios.get(`https://paying-guest-website-backend.onrender.com/api/rooms/number/${searchRoomNumber}`)
       .then(response => {
         setRoomDetails(response.data);
         setRoomFormData({
@@ -250,7 +250,7 @@ const AdminDashboard = () => {
   };
 
   const handleSearchPayment = () => {
-    axios.get(`http://localhost:5000/api/payments/${searchTerm}`)
+    axios.get(`https://paying-guest-website-backend.onrender.com/api/payments/${searchTerm}`)
       .then(response => {
         setPayments(response.data);
       })
@@ -709,7 +709,7 @@ const AdminDashboard = () => {
                         <td>{payment.guestId.name}</td>
                         <td>{payment.transactionId}</td>
                         <td>
-                          <img src={`http://localhost:5000/uploads/${payment.screenshot}`} alt="screenshot" style={{ width: '100px' }} />
+                          <img src={`https://paying-guest-website-backend.onrender.com/uploads/${payment.screenshot}`} alt="screenshot" style={{ width: '100px' }} />
                         </td>
                         <td>{payment.month}</td>
                         <td>{new Date(payment.date).toLocaleString()}</td>
